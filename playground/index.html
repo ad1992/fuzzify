@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuzzy Search Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      #searchInput {
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #fff;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .highlight {
+        background-color: #ffd700;
+        color: #000;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fuzzy Search Example</h1>
+    <input type="text" id="searchInput" placeholder="Type a word..." />
+    <ul id="resultsList"></ul>
+
+    <script src="index.ts" type="module"></script>
+  </body>
+</html>

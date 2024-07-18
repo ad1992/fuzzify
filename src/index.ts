@@ -1,11 +1,22 @@
 export const fuzzySearch = (str: string, list: Array<string>) => {
-  const result = new Array(list.length).fill(0);
+  const result: Array<{ [text: string]: any }> = [];
   for (let i = 0; i < list.length; i++) {
-    result[i] = levenshteinFullMatrixSearch(str, list[i]);
+    const key = list[i];
+    result[i] = {
+      text: key,
+      count: levenshteinFullMatrixSearch(str, list[i]),
+    };
     console.debug(
-      `${str} ----> ${list[i]} needs minimum ${result[i]} operations`
+      `${str} ----> ${key} needs minimum ${result[i].count} operations`
     );
   }
+
+  result.sort((x, y) => {
+    return Number(x.count) - Number(y.count);
+  });
+  return result.filter((res) => {
+    return res.count !== res.text.length;
+  });
 };
 
 const levenshteinFullMatrixSearch = (str1: string, str2: string) => {
@@ -30,3 +41,4 @@ const levenshteinFullMatrixSearch = (str1: string, str2: string) => {
   }
   return dp[str1.length][str2.length];
 };
+fuzzySearch("kitten", ["kitten", "lit", "sitting", "Hello"]);
