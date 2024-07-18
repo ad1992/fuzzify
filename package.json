@@ -1,0 +1,29 @@
+{
+  "name": "fuzy",
+  "version": "1.0.0",
+  "description": "A lightweight fuzzy search library",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ad1992/fuzy.git"
+  },
+  "keywords": [
+    "fuzzy",
+    "search"
+  ],
+  "author": "Aakansha Doshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ad1992/fuzy/issues"
+  },
+  "homepage": "https://github.com/ad1992/fuzy#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
