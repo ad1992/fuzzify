@@ -1,4 +1,4 @@
-import { fuzzySearch } from "../src/index";
+import Fuzy, { Result } from "../src/index";
 
 const movies = [
   "3 Idiots",
@@ -105,41 +105,25 @@ function performSearch() {
     .getElementById("searchInput")!
     //@ts-ignore
     .value!.toLowerCase();
-  const results = fuzzySearch(query, movies);
+  const fuzy = new Fuzy(movies);
+  const results = fuzy.search(query);
   console.log("RESULTS", results);
-  displayResults(query, results);
+  displayResults(results);
 }
 
-function displayResults(
-  query: string,
-  results: Array<{ [text: string]: string }>
-) {
+function displayResults(results: Result) {
   const resultsList = document.getElementById("resultsList")!;
   resultsList.innerHTML = "";
 
   results.forEach((result) => {
     const item = document.createElement("li");
-    const text = result.text.toLowerCase();
+    const text = result.text;
 
     let highlightedTitle = "";
-    const charCount = new Array(26).fill(0);
-    for (let i = 0; i < text.length; i++) {
-      const charCode = text.charAt(i).charCodeAt(0) - 97;
-      if (charCount[charCode] === 0) {
-        charCount[charCode]++;
-      }
-    }
-
-    for (let i = 0; i < query.length; i++) {
-      const charCode = query.charAt(i).charCodeAt(0) - 97;
-      if (charCount[charCode] === 1) {
-        charCount[charCode]++;
-      }
-    }
+    const matchIndexes = result.matches?.map((match) => match[1]);
     for (let i = 0; i < text.length; i++) {
       const ch = text.charAt(i);
-      const charCode = ch.charCodeAt(0) - 97;
-      if (charCount[charCode] === 2) {
+      if (matchIndexes?.includes(i)) {
         highlightedTitle += `<span class="highlight">${ch}</span>`;
       } else {
         highlightedTitle += ch;
