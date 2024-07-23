@@ -86,12 +86,14 @@ class Fuzy {
         `${str} ----> ${key} needs minimum ${result[i].count} operations and has matches at ${matches}`
       );
     }
+    // Sort by max matching characters length and minimum edits required
     result.sort((x, y) => {
-      return y.matches!.length - x.matches!.length;
+      return y.matches!.length - x.matches!.length && x.count - y.count;
     });
 
+    // Exclude strings with no matches
     return result.filter((res) => {
-      return res.count !== res.text.length;
+      return res.matches!.length > 0;
     });
   };
 }

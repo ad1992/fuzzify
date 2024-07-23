@@ -112,7 +112,6 @@ function displayResults(query, results) {
         const item = document.createElement("li");
         const { text } = result;
         let highlightedTitle = "";
-        let lastIndex = 0;
         const charCount = new Array(26).fill(0);
         for (let i = 0; i < text.length; i++) {
             const charCode = query.charAt(i).charCodeAt(0) - 97;

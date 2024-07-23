@@ -123,7 +123,8 @@ function displayResults(results: Result) {
     const matchIndexes = result.matches?.map((match) => match[1]);
     for (let i = 0; i < text.length; i++) {
       const ch = text.charAt(i);
-      if (matchIndexes?.includes(i)) {
+      // check if this index matches except for space
+      if (matchIndexes?.includes(i) && ch !== " ") {
         highlightedTitle += `<span class="highlight">${ch}</span>`;
       } else {
         highlightedTitle += ch;

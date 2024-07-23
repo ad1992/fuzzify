@@ -6,9 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "ts-node src/index.ts",
     "build:playground": "tsc",
-    "start:playground": "vite playground"
+    "start": "vite playground"
   },
   "repository": {
     "type": "git",
