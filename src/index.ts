@@ -3,7 +3,7 @@ interface Options {
 }
 export type Result = Array<{
   text: string;
-  count: number;
+  distance: number;
   matches?: number[][];
 }>;
 
@@ -79,16 +79,20 @@ class Fuzy {
       const key = this.list[i];
       result[i] = {
         text: key,
-        count: matrix[str.length][this.list[i].length],
+        distance: matrix[str.length][this.list[i].length],
         matches,
       };
       console.debug(
-        `${str} ----> ${key} needs minimum ${result[i].count} operations and has matches at ${matches}`
+        `${str} ----> ${key} needs minimum ${result[i].distance} operations and has matches at ${matches}`
       );
     }
     // Sort by max matching characters length and minimum edits required
     result.sort((x, y) => {
-      return y.matches!.length - x.matches!.length && x.count - y.count;
+      if (x.matches?.length === y.matches?.length) {
+        return x.distance - y.distance;
+      } else {
+        return y.matches!.length - x.matches!.length;
+      }
     });
 
     // Exclude strings with no matches
