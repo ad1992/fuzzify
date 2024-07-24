@@ -1,4 +1,4 @@
-import Fuzy, { Result } from "fuzzify";
+import Fuzzy, { Result } from "../src";
 import { countries } from "./countries";
 
 function performSearch() {
@@ -6,8 +6,8 @@ function performSearch() {
     .getElementById("searchInput")!
     //@ts-ignore
     .value!.toLowerCase();
-  const fuzy = new Fuzy(countries);
-  const results = fuzy.search(query);
+  const fuzzy = new Fuzzy(countries, { includeMatches: true });
+  const results = fuzzy.search(query);
   console.debug("RESULTS", results);
   displayResults(results);
 }

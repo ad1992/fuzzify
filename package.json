@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ad1992/fuzy.git"
+    "url": "git+https://github.com/ad1992/fuzzify.git"
   },
   "keywords": [
     "fuzzy",
@@ -26,9 +26,9 @@
   "author": "Aakansha Doshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ad1992/fuzy/issues"
+    "url": "https://github.com/ad1992/fuzzify/issues"
   },
-  "homepage": "https://github.com/ad1992/fuzy#readme",
+  "homepage": "https://github.com/ad1992/fuzzify#readme",
   "devDependencies": {
     "fuzzify": "^0.1.0-test2",
     "ts-node": "^10.9.2",

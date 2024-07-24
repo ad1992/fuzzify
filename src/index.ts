@@ -1,19 +1,23 @@
 interface Options {
-  includeIndicies?: boolean;
+  includeMatches?: boolean;
 }
-export type Result = Array<{
+
+export type SingleResult = {
   text: string;
   distance: number;
   matches?: number[][];
-}>;
+};
+export type Result = Array<SingleResult>;
 
-class Fuzy {
+class Fuzzy {
   list: Array<string>;
   options: Options;
 
   constructor(list: Array<string>, options?: Options) {
     this.list = list || [];
-    this.options = options || {};
+    this.options = options || {
+      includeMatches: false,
+    };
   }
 
   levenshteinFullMatrixSearch = (str1: string, str2: string) => {
@@ -95,10 +99,18 @@ class Fuzy {
       }
     });
 
-    // Exclude strings with no matches
-    return result.filter((res) => {
-      return res.matches!.length > 0;
+    const approxMatches: Result = [];
+
+    result.forEach((res, index) => {
+      const obj: SingleResult = { text: res.text, distance: res.distance };
+      if (res.matches!.length > 0) {
+        if (this.options.includeMatches) {
+          obj.matches = res.matches;
+        }
+        approxMatches[index] = obj;
+      }
     });
+    return approxMatches;
   };
 }
-export default Fuzy;
+export default Fuzzy;
