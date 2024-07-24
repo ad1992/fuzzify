@@ -7,7 +7,8 @@ A little nice library for Fuzzy Search.
 I made this library as a result of learning about [Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of edits to transform one word to another.
 
 > [!NOTE]  
-> Note: The library is at a very early stage, if you want to > help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
+> Note: The library is at a very early stage, if you want to
+> help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
 
 ## Installation
 
