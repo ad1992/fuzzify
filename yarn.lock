@@ -309,9 +309,9 @@ fsevents@~2.3.2, fsevents@~2.3.3:
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 fuzzify@^0.1.0-test3:
-  version "0.1.0-test2"
-  resolved "https://registry.yarnpkg.com/fuzzify/-/fuzzify-0.1.0-test2.tgz#0e13e99e9b3716af8624ecd017b2dad80cdfb6c9"
-  integrity sha512-aNCQrHmAOwv7BNrVp4Yyjz2klMiA81EwsWFBxYHpircH1qZz86rqrQvJ8ABBtWYAFM8Ah1x+J0XdXYWdEadw3A==
+  version "0.1.0-test3"
+  resolved "https://registry.yarnpkg.com/fuzzify/-/fuzzify-0.1.0-test3.tgz#bffc71fa870cbddc3cbb76c2bcfdf38f9eceb805"
+  integrity sha512-MCX+sv8aaW85wEOlwgxLIyMAP8jZeSs16yNO1geLHmdriQJZEZNEtCRrN/1XCKCa6QZ745V48QU9MHoXz5s3ig==
 
 make-error@^1.1.1:
   version "1.3.6"
