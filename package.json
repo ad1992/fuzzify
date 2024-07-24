@@ -1,11 +1,17 @@
 {
-  "name": "fuzy",
-  "version": "1.0.0",
+  "name": "fuzzify",
+  "version": "0.1.0-test2",
   "description": "A lightweight fuzzy search library",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "module": "dist/index.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "build:playground": "tsc",
     "start": "vite playground"
   },
@@ -24,6 +30,7 @@
   },
   "homepage": "https://github.com/ad1992/fuzy#readme",
   "devDependencies": {
+    "fuzzify": "^0.1.0-test2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
     "vite": "^5.3.4"

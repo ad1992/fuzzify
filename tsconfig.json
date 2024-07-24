@@ -1,9 +1,11 @@
 {
+  "exclude": ["**/*.test.*", "tests", "types", "playground", "dist"],
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ESNext",
     "outDir": "dist",
-    "module": "commonjs",
+    "module": "ESNext",
     "esModuleInterop": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true

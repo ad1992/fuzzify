@@ -1,4 +1,4 @@
-import Fuzy, { Result } from "../src/index";
+import Fuzy, { Result } from "fuzzify";
 import { countries } from "./countries";
 
 function performSearch() {
@@ -8,7 +8,7 @@ function performSearch() {
     .value!.toLowerCase();
   const fuzy = new Fuzy(countries);
   const results = fuzy.search(query);
-  console.log("RESULTS", results);
+  console.debug("RESULTS", results);
   displayResults(results);
 }
 

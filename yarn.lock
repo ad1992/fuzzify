@@ -308,6 +308,11 @@ fsevents@~2.3.2, fsevents@~2.3.3:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
+fuzzify@^0.1.0-test3:
+  version "0.1.0-test2"
+  resolved "https://registry.yarnpkg.com/fuzzify/-/fuzzify-0.1.0-test2.tgz#0e13e99e9b3716af8624ecd017b2dad80cdfb6c9"
+  integrity sha512-aNCQrHmAOwv7BNrVp4Yyjz2klMiA81EwsWFBxYHpircH1qZz86rqrQvJ8ABBtWYAFM8Ah1x+J0XdXYWdEadw3A==
+
 make-error@^1.1.1:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
