@@ -13,8 +13,8 @@ export type Result = Array<SingleResult>;
 const MATCHING_SCORE_WEIGHT = 0.5;
 const NORMALIZED_DISTANCE_WEIGHT = 0.5;
 class Fuzzy {
-  list: Array<string>;
-  options: Options;
+  private list: Array<string>;
+  private options: Options;
 
   constructor(list: Array<string>, options?: Options) {
     this.list = list || [];
@@ -24,20 +24,20 @@ class Fuzzy {
   }
 
   // Calculate Levenshtein distance between two strings
-  levenshteinFullMatrixSearch = (str1: string, str2: string) => {
-    const dp = new Array(str1.length + 1)
+  private levenshteinFullMatrixSearch = (query: string, target: string) => {
+    const dp = new Array(query.length + 1)
       .fill(0)
-      .map(() => new Array(str2.length + 1).fill(0));
+      .map(() => new Array(target.length + 1).fill(0));
 
-    for (let j = 0; j <= str1.length; j++) {
+    for (let j = 0; j <= query.length; j++) {
       dp[j][0] = j;
     }
-    for (let k = 0; k <= str2.length; k++) {
+    for (let k = 0; k <= target.length; k++) {
       dp[0][k] = k;
     }
-    for (let j = 1; j <= str1.length; j++) {
-      for (let k = 1; k <= str2.length; k++) {
-        if (str1[j - 1] === str2[k - 1]) {
+    for (let j = 1; j <= query.length; j++) {
+      for (let k = 1; k <= target.length; k++) {
+        if (query[j - 1] === target[k - 1]) {
           dp[j][k] = dp[j - 1][k - 1];
         } else {
           dp[j][k] = Math.min(dp[j][k - 1], dp[j - 1][k], dp[j - 1][k - 1]) + 1;
@@ -48,17 +48,17 @@ class Fuzzy {
   };
 
   // Get matching indices from the matrix
-  getMatchingIndices = (
+  private getMatchingIndices = (
     matrix: Array<string>[],
-    str1: string,
-    str2: string
+    query: string,
+    target: string
   ) => {
     const matches = [];
-    let i = str1.length;
-    let j = str2.length;
+    let i = query.length;
+    let j = target.length;
 
     while (i > 0 && j > 0) {
-      if (str1[i - 1] === str2[j - 1]) {
+      if (query[i - 1] === target[j - 1]) {
         matches.unshift([i - 1, j - 1]);
         i--;
         j--;
@@ -72,7 +72,7 @@ class Fuzzy {
   };
 
   // Calculate score based on matching score and normalized distance
-  calculateScore = (
+  private calculateScore = (
     query: string,
     target: string,
     matches: number[][],
@@ -89,7 +89,7 @@ class Fuzzy {
   };
 
   // Search for the query in the list
-  search = (query: string) => {
+  public search = (query: string) => {
     const result: (SingleResult & { score: number })[] = [];
     for (let i = 0; i < this.list.length; i++) {
       const matrix = this.levenshteinFullMatrixSearch(
