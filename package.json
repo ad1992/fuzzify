@@ -12,8 +12,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsc",
-    "build:playground": "tsc",
-    "start": "vite playground"
+    "build:playground": "vite build playground",
+    "start": "vite playground",
+    "preview": "vite preview --outDir ./public"
   },
   "repository": {
     "type": "git",

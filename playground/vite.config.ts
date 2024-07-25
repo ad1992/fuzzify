@@ -7,4 +7,9 @@ export default defineConfig({
     // open the browser
     open: true,
   },
+  build: {
+    outDir: "../public",
+    emptyOutDir: true,
+    assetsDir: "./",
+  },
 });
