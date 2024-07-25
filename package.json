@@ -1,6 +1,6 @@
 {
   "name": "fuzzify",
-  "version": "0.1.0-test3",
+  "version": "0.1.0",
   "description": "A lightweight fuzzy search library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/ad1992/fuzzify#readme",
   "devDependencies": {
-    "fuzzify": "^0.1.0-test3",
+    "fuzzify": "^0.1.0-test4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
     "vite": "^5.3.4"

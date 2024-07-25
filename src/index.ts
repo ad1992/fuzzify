@@ -58,8 +58,6 @@ class Fuzzy {
     let j = str2.length;
 
     while (i > 0 && j > 0) {
-      console.log(str1[i - 1], str2[j - 1]);
-      console.log(matrix[i - 1][j], matrix[i][j - 1]);
       if (str1[i - 1] === str2[j - 1]) {
         matches.unshift([i - 1, j - 1]);
         i--;
@@ -120,7 +118,6 @@ class Fuzzy {
     });
 
     const approxMatches: Result = [];
-    console.debug("RESULTS = ", result);
     result.forEach((res, index) => {
       const obj: SingleResult = { text: res.text, distance: res.distance };
       if (res.score > 0) {

@@ -53,6 +53,11 @@ console.log("RESULTS", results);
 
 The `search` API gives approximate matched strings with the passed query in the below format.
 
+| Attributes | Description|
+| ---- | ---- |
+| text | The target string against which query is matched
+| distance | The minimum number of edits (Instertion / Deletion / Replacement) required to transform the query to target text.
+
 ```js
 [
   {
@@ -106,12 +111,31 @@ The `search` API gives approximate matched strings with the passed query in the 
 ];
 ```
 
+
 ## Options
 
 ### `includeMatches`
 
-`includeMatches` - Determines whether the `indices` at which characters matche should be returned in the response.
+`includeMatches` - Determines whether the `indices` at which characters matche should be returned in the response. Each `match` element consists of two indices -
+1. The index of query string where match is found.
+2. The index of target string where a match is found.
 
+Example :point_down:
+
+```js
+query = "ala", target string = "Australia"
+matches: [
+  [0, 5],
+  [1, 6],
+  [2, 8],
+],
+```
+In the above example :point_down: matches are found
+1. character `a` at `0th` index in `ala` matches with characater `a` at `5th` index in `Australia`
+2. character `l` at `1st` index in `ala` matches with characater `a` at `6th` index in `Australia`
+3. character `a` at `2nd` index in `ala` matches with characater `a` at `8th` index in `Australia`
+
+The complete response would be :point_down:
 ```js
 [
   {
@@ -226,4 +250,4 @@ yarn build
 
 ## Contributing
 
-Please open an [issue](https://github.com/ad1992/fuzzify/issues) so we can start discussing. Any help to improve the library is welcome :).
+Please open an [issue](https://github.com/ad1992/fuzzify/issues) so we can start discussing. Any help to improve the library is most welcome :).

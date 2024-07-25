@@ -8,6 +8,7 @@ function performSearch() {
     .value!.toLowerCase();
   const fuzzy = new Fuzzy(countries, { includeMatches: true });
   const results = fuzzy.search(query);
+  console.debug("RESULTS = ", results);
   displayResults(results);
 }
 
