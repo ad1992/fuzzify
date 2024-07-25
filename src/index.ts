@@ -9,6 +9,8 @@ export type SingleResult = {
 };
 export type Result = Array<SingleResult>;
 
+const MATCHING_SCORE_WEIGHT = 0.5;
+const NORMALIZED_DISTANCE_WEIGHT = 0.5;
 class Fuzzy {
   list: Array<string>;
   options: Options;
@@ -68,42 +70,55 @@ class Fuzzy {
     return matches;
   };
 
-  search = (str: string) => {
-    const result: Result = [];
+  calculateScore = (
+    query: string,
+    target: string,
+    matches: number[][],
+    distance: number
+  ) => {
+    const matchingScore =
+      matches.length / Math.min(target.length, query.length);
+    const normalizedDistance = distance / Math.max(query.length, target.length);
+    const score =
+      NORMALIZED_DISTANCE_WEIGHT * (1 - normalizedDistance) +
+      MATCHING_SCORE_WEIGHT * matchingScore;
+
+    return score;
+  };
+
+  search = (query: string) => {
+    const result: (SingleResult & { score: number })[] = [];
     for (let i = 0; i < this.list.length; i++) {
       const matrix = this.levenshteinFullMatrixSearch(
-        str.toLowerCase(),
+        query.toLowerCase(),
         this.list[i].toLowerCase()
       );
       const matches = this.getMatchingIndices(
         matrix,
-        str.toLowerCase(),
+        query.toLowerCase(),
         this.list[i].toLowerCase()
       );
-      const key = this.list[i];
+      const target = this.list[i];
+      const distance = matrix[query.length][target.length];
+      const score = this.calculateScore(query, target, matches, distance);
+
       result[i] = {
-        text: key,
-        distance: matrix[str.length][this.list[i].length],
+        text: target,
+        distance,
         matches,
+        score,
       };
-      console.debug(
-        `${str} ----> ${key} needs minimum ${result[i].distance} operations and has matches at ${matches}`
-      );
     }
-    // Sort by max matching characters length and minimum edits required
+    // Sort by score in descending order
     result.sort((x, y) => {
-      if (x.matches?.length === y.matches?.length) {
-        return x.distance - y.distance;
-      } else {
-        return y.matches!.length - x.matches!.length;
-      }
+      return y.score - x.score;
     });
 
     const approxMatches: Result = [];
-
+    console.debug("RESULTS = ", result);
     result.forEach((res, index) => {
       const obj: SingleResult = { text: res.text, distance: res.distance };
-      if (res.matches!.length > 0) {
+      if (res.score > 0) {
         if (this.options.includeMatches) {
           obj.matches = res.matches;
         }
