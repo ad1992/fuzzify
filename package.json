@@ -1,6 +1,6 @@
 {
   "name": "fuzzify",
-  "version": "0.1.0-test5",
+  "version": "0.1.0",
   "description": "A lightweight fuzzy search library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
