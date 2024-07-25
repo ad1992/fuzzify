@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fuzzy Search Example</title>
+    <title>Fuzzy Search Playground</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -15,6 +15,7 @@
       h1 {
         color: #333;
         text-align: center;
+        width: 80%;
       }
 
       #searchInput {
@@ -25,6 +26,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 0;
       }
 
       ul {
@@ -32,6 +34,7 @@
         padding: 20px;
         width: 80%;
         font-weight: 600;
+        margin-top: 0;
       }
 
       li {
@@ -52,8 +55,13 @@
     </style>
   </head>
   <body>
-    <h1>Fuzzy Search Example</h1>
-    <input type="text" id="searchInput" placeholder="Type a country..." />
+    <h1>Fuzzy Search Playground</h1>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Type a country..."
+      autocomplete="off"
+    />
     <ul id="resultsList"></ul>
 
     <script src="index.ts" type="module"></script>
