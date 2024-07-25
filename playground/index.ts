@@ -1,4 +1,6 @@
-import Fuzzy, { Result } from "../src";
+import Fuzzy from "fuzzify";
+import { Result } from "../src/Fuzzy";
+
 import { countries } from "./countries";
 
 function performSearch() {
