@@ -9,6 +9,7 @@ export type SingleResult = {
 };
 export type Result = Array<SingleResult>;
 
+// Weights for matching score and normalized distance
 const MATCHING_SCORE_WEIGHT = 0.5;
 const NORMALIZED_DISTANCE_WEIGHT = 0.5;
 class Fuzzy {
@@ -22,6 +23,7 @@ class Fuzzy {
     };
   }
 
+  // Calculate Levenshtein distance between two strings
   levenshteinFullMatrixSearch = (str1: string, str2: string) => {
     const dp = new Array(str1.length + 1)
       .fill(0)
@@ -45,6 +47,7 @@ class Fuzzy {
     return dp;
   };
 
+  // Get matching indices from the matrix
   getMatchingIndices = (
     matrix: Array<string>[],
     str1: string,
@@ -70,6 +73,7 @@ class Fuzzy {
     return matches;
   };
 
+  // Calculate score based on matching score and normalized distance
   calculateScore = (
     query: string,
     target: string,
@@ -86,6 +90,7 @@ class Fuzzy {
     return score;
   };
 
+  // Search for the query in the list
   search = (query: string) => {
     const result: (SingleResult & { score: number })[] = [];
     for (let i = 0; i < this.list.length; i++) {

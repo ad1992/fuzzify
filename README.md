@@ -1,10 +1,10 @@
 # fuzzify
 
-A little nice library for Fuzzy Search.
+A tiny lightweight library for Fuzzy Search.
 
 ## Why
 
-I made this library as a result of learning about [Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of edits to transform one word to another.
+I made this library as a result of learning about [Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of edits required transform one word to another.
 
 > [!NOTE]  
 > Note: The library is at a very early stage, if you want to
@@ -80,12 +80,12 @@ The `search` API gives approximate matched strings with the passed query in the 
     distance: 5,
   },
   {
-    text: "Israel",
-    distance: 5,
-  },
-  {
     text: "Maldives",
     distance: 6,
+  },
+  {
+    text: "Israel",
+    distance: 5,
   },
   {
     text: "India",
@@ -166,19 +166,19 @@ The `search` API gives approximate matched strings with the passed query in the 
     ],
   },
   {
-    text: "Israel",
-    distance: 5,
-    matches: [
-      [0, 3],
-      [1, 5],
-    ],
-  },
-  {
     text: "Maldives",
     distance: 6,
     matches: [
       [0, 1],
       [1, 2],
+    ],
+  },
+  {
+    text: "Israel",
+    distance: 5,
+    matches: [
+      [0, 3],
+      [1, 5],
     ],
   },
   {
