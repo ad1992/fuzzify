@@ -1,0 +1,38 @@
+# ./.github/workflows/node-ci.yml
+#
+# Auto CI/CD for Node.js projects using GitHub Actions.
+name: Node CI
+
+# Enable the workflow for auto push, pull_request 
+# and manual workflow_dispatch events.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  yarn-vitest:
+    name: Yarn Vitest
+
+    permissions:
+      contents: read
+      packages: read
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Run Benchmarks Compare
+        run: yarn test:bench:compare
