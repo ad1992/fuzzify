@@ -4,7 +4,7 @@ A tiny lightweight library for Fuzzy Search.
 
 ## Why
 
-I made this library as a result of learning about [Levenshtein](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of edits required transform one word to another.
+I made this library as a result of learning about [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of edits required transform one word to another by [Vladimir Levenshtein](https://en.wikipedia.org/wiki/Vladimir_Levenshtein).
 
 > [!NOTE]  
 > Note: The library is at a very early stage, if you want to

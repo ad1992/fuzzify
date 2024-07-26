@@ -26,8 +26,20 @@ export const levenshteinFullMatrixSearch = (query: string, target: string) => {
   }
   return dp;
 };
-// Get matching indices from the matrix
 
+// Set max distance based on the length of the strings
+export const getMaxLevenshteinDistance = (query: string, target: string) => {
+  const length = Math.max(query.length, target.length);
+  if (length <= 5) {
+    return 3;
+  }
+  if (length <= 15) {
+    return 10;
+  }
+  return 15;
+};
+
+// Get matching indices from the matrix
 export const getMatchingIndices = (
   matrix: Array<string>[],
   query: string,
@@ -58,6 +70,11 @@ export const calculateScore = (
   matches: number[][],
   distance: number
 ) => {
+  const maxLevenshteinDistance = getMaxLevenshteinDistance(query, target);
+
+  if (distance > maxLevenshteinDistance) {
+    return 0;
+  }
   const matchingScore = matches.length / Math.min(target.length, query.length);
   const normalizedDistance = distance / Math.max(query.length, target.length);
   const score =
