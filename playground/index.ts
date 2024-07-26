@@ -1,4 +1,4 @@
-import Fuzzy from "fuzzify";
+import Fuzzy from "../src/index";
 import { Result } from "../src/Fuzzy";
 
 import { countries } from "./countries";
