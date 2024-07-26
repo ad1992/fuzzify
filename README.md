@@ -27,7 +27,7 @@ npm install fuzzify
 ## Usage
 
 ```js
-import Fuzy from "fuzzify";
+import Fuzzy from "fuzzify";
 
 const countries = [
   "Australia",
@@ -53,10 +53,10 @@ console.log("RESULTS", results);
 
 The `search` API gives approximate matched strings with the passed query in the below format.
 
-| Attributes | Description|
-| ---- | ---- |
-| text | The target string against which query is matched
-| distance | The minimum number of edits (Instertion / Deletion / Replacement) required to transform the query to target text.
+| Attributes | Description                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| text       | The target string against which query is matched                                                                   |
+| distance   | The minimum number of edits (Insertion / Deletion / Substitutions) required to transform the query to target text. |
 
 ```js
 [
@@ -111,12 +111,12 @@ The `search` API gives approximate matched strings with the passed query in the 
 ];
 ```
 
-
 ## Options
 
 ### `includeMatches`
 
 `includeMatches` - Determines whether the `indices` at which characters matche should be returned in the response. Each `match` element consists of two indices -
+
 1. The index of query string where match is found.
 2. The index of target string where a match is found.
 
@@ -130,12 +130,15 @@ matches: [
   [2, 8],
 ],
 ```
+
 In the above example :point_down: matches are found
+
 1. character `a` at `0th` index in `ala` matches with characater `a` at `5th` index in `Australia`
 2. character `l` at `1st` index in `ala` matches with characater `a` at `6th` index in `Australia`
 3. character `a` at `2nd` index in `ala` matches with characater `a` at `8th` index in `Australia`
 
 The complete response would be :point_down:
+
 ```js
 [
   {
@@ -227,6 +230,10 @@ The complete response would be :point_down:
   },
 ];
 ```
+
+## Live Demo
+
+You can check the demo [here](https://fuzzify.vercel.app/).
 
 ## Set up
 
