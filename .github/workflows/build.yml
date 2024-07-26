@@ -1,9 +1,8 @@
-name: Build and verify PR Title
+name: semantic-pr-title
 
 on:
   pull_request:
-    branches:
-      - main
+    types: [opened,edited]
 
 jobs:
   verify-pr-title:
@@ -18,15 +17,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
       - name: semantic-pull-request
-        id: pr-title
         uses: amannn/action-semantic-pull-request@v5.5.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: build application
-        if: steps.pr-title.outcome == 'success'
-        run: yarn build
