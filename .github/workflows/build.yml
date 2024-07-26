@@ -1,4 +1,4 @@
-name: Build and verify PR-title
+name: Build and verify PR Title
 
 on:
   push:
