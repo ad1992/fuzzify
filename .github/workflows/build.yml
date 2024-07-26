@@ -1,4 +1,4 @@
-name: semantic-pr-title
+name: Semantic PR title
 
 on:
   pull_request:
