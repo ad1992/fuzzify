@@ -21,9 +21,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: pr-title-convention
+      - name: semantic-pull-request
         id: pr-title
-        uses: roseline124/pr-title-convention@v1.0.2
+        uses: amannn/action-semantic-pull-request@v5.5.3
 
       - name: build application
         if: steps.pr-title.outcome == 'success'
