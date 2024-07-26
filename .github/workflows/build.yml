@@ -1,35 +1,30 @@
 name: Build and verify PR-title
 
 on:
-    push:
-      branches:
-        - main
+  push:
+    branches:
+      - main
 
 jobs:
-    verify-pr-title:
-      runs-on: ubuntu-latest
+  verify-pr-title:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Branch
-        uses: actions/checkout@v4
+  steps:
+    - name: Checkout Branch
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      
-      - name: pr-title-convention
-        id: pr-title
-        uses: roseline124/pr-title-convention@v1.0.2
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
 
-      - name: build application 
-        if: steps.pr-title.outcome == 'success'
-        run: yarn build
+    - name: pr-title-convention
+      id: pr-title
+      uses: roseline124/pr-title-convention@v1.0.2
 
-            
-
-
-    
+    - name: build application
+      if: steps.pr-title.outcome == 'success'
+      run: yarn build
