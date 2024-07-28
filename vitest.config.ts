@@ -6,28 +6,41 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    exclude: ["src", "node_modules", "dist", "playground", "public"],
+
+    // Files to include and exclude. Exlusion takes precedence.
     include: ["__tests__/**/*.test.ts"],
+    exclude: ["src", "node_modules", "dist", "playground", "public"],
+    
+    // Enable globals to avoid redundant imports.
+    globals: true,
+
+    // Enable typescript typechecking.
     typecheck: {
       enabled: true,
     },
-    benchmark: {
-      include: ["__tests__/**/*.bench.ts"],
-    },
+
+    // Enable coverage generation and reporting via the
+    // @vitest/coverage-v8 dev dependency.
     coverage: {
       enabled: true,
-      include: ["src/**/*"],
+      include: ["src/**/*.ts"],
       provider: "v8",
-      reporter: [ "text", "html", "clover", "json"],
+
+      // Json and json-summary are required for GitHub vitest coverage report.
+      // For better debugging, enable generate coverage even on failure.
+      reporter: ["text", "html", "clover", "json", "json-summary"],
+      reportOnFailure: true,
+
       reportsDirectory: "coverage",
       thresholds: {
-        statements: 80,
-        branches: 80,
-        functions: 80,
-        lines: 80,
-      },
+        statements: 90,
+        branches: 90,
+        functions: 90,
+        lines: 90,
+      }
     },
-    reporters: "default",
+
+    // Disable watch mode to simplify workflow.
     watch: false,
   },
 });

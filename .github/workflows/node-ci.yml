@@ -16,7 +16,7 @@ jobs:
 
     permissions:
       contents: read
-      packages: read
+      pull-requests: write
 
     runs-on: ubuntu-latest
 
@@ -34,5 +34,6 @@ jobs:
       - name: Run tests
         run: yarn test
 
-      - name: Run Benchmarks Compare
-        run: yarn test:bench:compare
+      - name: Run coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2

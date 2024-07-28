@@ -11,8 +11,6 @@
   ],
   "scripts": {
     "test": "vitest",
-    "test:bench": "vitest bench --outputJson __tests__/benchmark.json",
-    "test:bench:compare": "vitest bench --compare __tests__/benchmark.json",
     "build": "rm -rf dist && tsc",
     "build:playground": "vite build playground",
     "start": "vite playground",

@@ -8,6 +8,9 @@
     "paths": {
       "vitest/config": ["./node_modules/vitest/config"]
     },
+    "types": [
+      "vitest/globals"
+    ],
     "esModuleInterop": true,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
