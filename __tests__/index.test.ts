@@ -6,7 +6,7 @@ import Fuzzy from "../src/Fuzzy";
 import * as IndexExport from "../src/index";
 
 describe("Package entrypoint", () => {
-  it("should correctly exports the Fuzzy class", () => {
+  it("should correctly export the Fuzzy class", () => {
     expect(IndexExport.default).toBe(Fuzzy);
   });
 });
