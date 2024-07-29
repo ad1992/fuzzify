@@ -10,7 +10,7 @@
     "dist/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "build": "rm -rf dist && tsc",
     "build:playground": "vite build playground",
     "start": "vite playground",
@@ -30,11 +30,18 @@
     "url": "https://github.com/ad1992/fuzzify/issues"
   },
   "homepage": "https://github.com/ad1992/fuzzify#readme",
+  "packageManager": "yarn@1.22.22",
   "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@vitest/coverage-v8": "^2.0.4",
     "fuzzify": "^0.1.0-test5",
     "sass": "^1.77.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vitest": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

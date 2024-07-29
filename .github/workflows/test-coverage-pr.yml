@@ -1,0 +1,39 @@
+# ./.github/workflows/test-coverage-pr.yml
+#
+# Automated GitHub Actions workflow to run tests and coverage
+name: Test Coverage Pull Request
+
+# Enable the workflow for auto push, pull_request 
+# and manual workflow_dispatch events.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  coverage:
+    name: Test Coverage
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set Node.js 18.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Run coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2

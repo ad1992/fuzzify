@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Test Fuzzy > should include matches if includeMatches option is true 1`] = `
+[
+  {
+    "distance": 0,
+    "matches": [
+      [
+        0,
+        0,
+      ],
+      [
+        1,
+        1,
+      ],
+      [
+        2,
+        2,
+      ],
+      [
+        3,
+        3,
+      ],
+      [
+        4,
+        4,
+      ],
+    ],
+    "text": "apple",
+  },
+  {
+    "distance": 4,
+    "matches": [
+      [
+        0,
+        4,
+      ],
+      [
+        1,
+        5,
+      ],
+      [
+        2,
+        6,
+      ],
+      [
+        3,
+        7,
+      ],
+      [
+        4,
+        8,
+      ],
+    ],
+    "text": "pineapple",
+  },
+  {
+    "distance": 5,
+    "matches": [
+      [
+        0,
+        2,
+      ],
+      [
+        4,
+        5,
+      ],
+    ],
+    "text": "orange",
+  },
+  {
+    "distance": 5,
+    "matches": [
+      [
+        0,
+        1,
+      ],
+    ],
+    "text": "banana",
+  },
+]
+`;
+
+exports[`Test Fuzzy > should return correct results for a query 1`] = `
+[
+  {
+    "distance": 0,
+    "text": "apple",
+  },
+  {
+    "distance": 4,
+    "text": "pineapple",
+  },
+  {
+    "distance": 5,
+    "text": "orange",
+  },
+  {
+    "distance": 5,
+    "text": "banana",
+  },
+]
+`;
+
+exports[`Test Fuzzy > should set this.list to an empty array if list is undefined 1`] = `
+Fuzzy {
+  "list": [],
+  "options": {
+    "includeMatches": false,
+  },
+  "search": [Function],
+}
+`;

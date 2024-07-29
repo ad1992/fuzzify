@@ -13,16 +13,22 @@ export type SingleResult = {
   matches?: number[][];
 };
 export type Result = Array<SingleResult>;
-
 class Fuzzy {
+  /**
+   * The list of strings to search within.
+   * @type {Array<string>}
+   */
   private list: Array<string>;
+
+  /**
+   * The options for the fuzzy search.
+   * @type {Options}
+   */
   private options: Options;
 
   constructor(list: Array<string>, options?: Options) {
     this.list = list || [];
-    this.options = options || {
-      includeMatches: false,
-    };
+    this.options = options || { includeMatches: false };
   }
 
   // Search for the query in the list
@@ -49,6 +55,7 @@ class Fuzzy {
         score,
       };
     }
+
     // Sort by score in descending order
     result.sort((x, y) => {
       return y.score - x.score;
@@ -64,6 +71,7 @@ class Fuzzy {
         approxMatches[index] = obj;
       }
     });
+
     return approxMatches;
   };
 }

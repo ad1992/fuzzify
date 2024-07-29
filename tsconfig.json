@@ -1,9 +1,16 @@
 {
-  "exclude": ["**/*.test.*", "tests", "types", "playground", "dist"],
+  "exclude": ["**/*.test.*", "__tests__", "types", "playground", "dist"],
   "compilerOptions": {
     "target": "ESNext",
     "outDir": "dist",
     "module": "ESNext",
+    "moduleResolution": "node",
+    "paths": {
+      "vitest/config": ["./node_modules/vitest/config"]
+    },
+    "types": [
+      "vitest/globals"
+    ],
     "esModuleInterop": true,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
