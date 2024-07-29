@@ -11,7 +11,7 @@ import {
 } from '../src/utils';
 
 // levenshteinFullMatrixSearch test suite.
-describe('levenshteinFullMatrixSearch', () => {
+describe('Test levenshteinFullMatrixSearch', () => {
   it('should return a matrix of the correct dimensions', () => {
     const query = 'hello';
     const target = 'world';
@@ -28,7 +28,7 @@ describe('levenshteinFullMatrixSearch', () => {
 });
 
 // getMaxLevenshteinDistance test suite.
-describe('getMaxLevenshteinDistance', () => {
+describe('Test getMaxLevenshteinDistance', () => {
   it('should return strictly 3 for short len 0~5 strings', () => {
     expect(getMaxLevenshteinDistance('', '')).toBe(3); // Empty str edge case.
     expect(getMaxLevenshteinDistance('a', '12')).toBe(3); // Routine case.
@@ -47,7 +47,7 @@ describe('getMaxLevenshteinDistance', () => {
 });
 
 // getMatchingIndices test suite.
-describe('getMatchingIndices', () => {
+describe('Test getMatchingIndices', () => {
   it('should return the correct matching indices', () => {
     const query = 'hello';
     const target = 'world';
@@ -58,7 +58,7 @@ describe('getMatchingIndices', () => {
 });
 
 // calculateScore test suite.
-describe('calculateScore', () => {
+describe('Test calculateScore', () => {
   it('should return the correct score when param dist <= max dist', () => {
     const query = 'hello';
     const target = 'world';

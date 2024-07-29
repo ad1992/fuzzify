@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`getMatchingIndices > should return the correct matching indices 1`] = `
+exports[`Test getMatchingIndices > should return the correct matching indices 1`] = `
 [
   [
     3,
@@ -9,7 +9,7 @@ exports[`getMatchingIndices > should return the correct matching indices 1`] = `
 ]
 `;
 
-exports[`levenshteinFullMatrixSearch > should return a matrix of the correct dimensions 1`] = `
+exports[`Test levenshteinFullMatrixSearch > should return a matrix of the correct dimensions 1`] = `
 [
   [
     0,
@@ -62,7 +62,7 @@ exports[`levenshteinFullMatrixSearch > should return a matrix of the correct dim
 ]
 `;
 
-exports[`levenshteinFullMatrixSearch > should return a matrix with the correct values 1`] = `
+exports[`Test levenshteinFullMatrixSearch > should return a matrix with the correct values 1`] = `
 [
   [
     0,

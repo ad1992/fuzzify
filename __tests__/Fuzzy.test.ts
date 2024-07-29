@@ -6,7 +6,7 @@
 import Fuzzy from '../src/Fuzzy';
 
 // Fuzzy class test suite.
-describe('Fuzzy', () => {
+describe('Test Fuzzy', () => {
   const list = ['apple', 'banana', 'grape', 'orange', 'pineapple'];
   const fuzzy = new Fuzzy(list);
 

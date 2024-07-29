@@ -1,7 +1,7 @@
-# ./.github/workflows/node-ci.yml
+# ./.github/workflows/test-coverage-pr.yml
 #
-# Auto CI/CD for Node.js projects using GitHub Actions.
-name: Node CI
+# Automated GitHub Actions workflow to run tests and coverage
+name: Test Coverage Pull Request
 
 # Enable the workflow for auto push, pull_request 
 # and manual workflow_dispatch events.
@@ -11,8 +11,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  yarn-vitest:
-    name: Yarn Vitest
+  coverage:
+    name: Test Coverage
 
     permissions:
       contents: read

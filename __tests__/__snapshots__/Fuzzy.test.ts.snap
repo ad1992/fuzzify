@@ -1,27 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Fuzzy > should NOT update cache for repeated same query 1`] = `
-[
-  {
-    "distance": 0,
-    "text": "apple",
-  },
-  {
-    "distance": 4,
-    "text": "pineapple",
-  },
-  {
-    "distance": 5,
-    "text": "orange",
-  },
-  {
-    "distance": 5,
-    "text": "banana",
-  },
-]
-`;
-
-exports[`Fuzzy > should include matches if includeMatches option is true 1`] = `
+exports[`Test Fuzzy > should include matches if includeMatches option is true 1`] = `
 [
   {
     "distance": 0,
@@ -102,7 +81,7 @@ exports[`Fuzzy > should include matches if includeMatches option is true 1`] = `
 ]
 `;
 
-exports[`Fuzzy > should return correct results for a query 1`] = `
+exports[`Test Fuzzy > should return correct results for a query 1`] = `
 [
   {
     "distance": 0,
@@ -123,9 +102,9 @@ exports[`Fuzzy > should return correct results for a query 1`] = `
 ]
 `;
 
-exports[`Fuzzy > should return empty array for no matches 1`] = `[]`;
+exports[`Test Fuzzy > should return empty array for no matches 1`] = `[]`;
 
-exports[`Fuzzy > should set this.list to an empty array if list is undefined 1`] = `
+exports[`Test Fuzzy > should set this.list to an empty array if list is undefined 1`] = `
 Fuzzy {
   "cache": {},
   "list": [],
