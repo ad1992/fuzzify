@@ -6,11 +6,10 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-
     // Files to include and exclude. Exlusion takes precedence.
     include: ["__tests__/**/*.test.ts"],
     exclude: ["src", "node_modules", "dist", "playground", "public"],
-    
+
     // Enable globals to avoid redundant imports.
     globals: true,
 
@@ -37,7 +36,7 @@ export default defineConfig({
         branches: 90,
         functions: 90,
         lines: 90,
-      }
+      },
     },
 
     // Disable watch mode to simplify workflow.

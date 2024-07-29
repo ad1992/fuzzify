@@ -13,10 +13,6 @@ export type SingleResult = {
   matches?: number[][];
 };
 export type Result = Array<SingleResult>;
-
-/**
- * Represents a Fuzzy search class.
- */
 class Fuzzy {
   /**
    * The list of strings to search within.
@@ -30,26 +26,13 @@ class Fuzzy {
    */
   private options: Options;
 
-  /**
-   * In-memory cache for query results.
-   * @type {Object.<string, Result>}
-   */
-  private cache: { [query: string]: Result };
-
   constructor(list: Array<string>, options?: Options) {
-    this.list    = list || [];
+    this.list = list || [];
     this.options = options || { includeMatches: false };
-    this.cache   = {};
   }
 
   // Search for the query in the list
   public search = (query: string) => {
-
-    // If incoming query is already cached, return the cached result
-    if (this.cache[query]) {
-      return this.cache[query];
-    }
-
     const result: (SingleResult & { score: number })[] = [];
     for (let i = 0; i < this.list.length; i++) {
       const matrix = levenshteinFullMatrixSearch(
@@ -89,8 +72,6 @@ class Fuzzy {
       }
     });
 
-    // Cache the result and return.
-    this.cache[query] = approxMatches;
     return approxMatches;
   };
 }
