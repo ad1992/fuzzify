@@ -51,6 +51,7 @@ class Fuzzy {
         score,
       };
     }
+
     // Sort by score in descending order
     result.sort((x, y) => {
       return y.score - x.score;
@@ -69,6 +70,7 @@ class Fuzzy {
         approxMatches[index] = obj;
       }
     });
+
     return approxMatches;
   };
 }
