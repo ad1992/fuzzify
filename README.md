@@ -231,6 +231,13 @@ The complete response would be :point_down:
 ];
 ```
 
+### `includeScore`
+
+Determines whether score should be added in the result. The score of `1` means exact match, however score of `0` means
+no match and those options are removed from the result.
+If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy) and lets discuss.
+
+
 ## Live Demo
 
 You can check the demo [here](https://fuzzify.vercel.app/).

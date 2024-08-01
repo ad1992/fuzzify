@@ -30,5 +30,35 @@ describe("Test Fuzzy", () => {
     const badFuzzy = new Fuzzy(undefined as any);
     expect(badFuzzy).toMatchSnapshot();
   });
-  ``;
+
+  it("should include score if includeScore option is true", () => {
+    const fuzzy = new Fuzzy(list, { includeScore: true });
+    const query = "apple";
+    const results = fuzzy.search(query);
+    expect(results).toMatchInlineSnapshot(`
+      [
+        {
+          "distance": 0,
+          "score": 1,
+          "text": "apple",
+        },
+        {
+          "distance": 4,
+          "score": 0.7777777777777778,
+          "text": "pineapple",
+        },
+        {
+          "distance": 5,
+          "score": 0.2833333333333333,
+          "text": "orange",
+        },
+        {
+          "distance": 5,
+          "score": 0.18333333333333332,
+          "text": "banana",
+        },
+      ]
+    `)
+  })
+
 });
