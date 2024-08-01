@@ -6,16 +6,18 @@ import {
 
 interface Options {
   includeMatches?: boolean;
+  includeScore?: boolean;
 }
 export type SingleResult = {
   text: string;
   distance: number;
   matches?: number[][];
+  score?: number;
 };
 export type Result = Array<SingleResult>;
 
 class Fuzzy {
-  private list: Array<string>;
+  private readonly list: Array<string>;
   private options: Options;
 
   constructor(list: Array<string>, options?: Options) {
@@ -60,6 +62,9 @@ class Fuzzy {
       if (res.score > 0) {
         if (this.options.includeMatches) {
           obj.matches = res.matches;
+        }
+        if (this.options.includeScore) {
+          obj.score = res.score
         }
         approxMatches[index] = obj;
       }

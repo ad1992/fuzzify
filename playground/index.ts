@@ -8,7 +8,7 @@ function performSearch() {
     .getElementById("searchInput")!
     //@ts-ignore
     .value!.toLowerCase();
-  const fuzzy = new Fuzzy(countries, { includeMatches: true });
+  const fuzzy = new Fuzzy(countries, { includeMatches: true, includeScore: true });
   const results = fuzzy.search(query);
   console.debug("RESULTS = ", results);
   displayResults(results);
