@@ -24,6 +24,7 @@ class Fuzzy {
     this.list = list || [];
     this.options = options || {
       includeMatches: false,
+      includeScore: false,
     };
   }
 
