@@ -233,9 +233,9 @@ The complete response would be :point_down:
 
 ### `includeScore`
 
-Determines whether score should be added in the result. The score of `1` means exact match, however score of `0` means
+Determines whether a score should be added in the result. A score of `1` means an exact match, however a score of `0` means
 no match and those options are removed from the result.
-If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy) and lets discuss.
+If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy/issue) and let's discuss.
 
 
 ## Live Demo
