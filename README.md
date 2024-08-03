@@ -4,11 +4,16 @@ A tiny lightweight library for Fuzzy Search.
 
 ## Why
 
-I made this library as a result of learning about [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of single-character edits (insertions, deletions or substitutions) required to transform one word to another by [Vladimir Levenshtein](https://en.wikipedia.org/wiki/Vladimir_Levenshtein).
+I made this library as a result of learning about [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of single-character edits (insertions, deletions or substitutions) required to transform the word to another by [Vladimir Levenshtein](https://en.wikipedia.org/wiki/Vladimir_Levenshtein).
 
 > [!NOTE]  
 > Note: The library is at a very early stage so if you want to
-> help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
+> To help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
+
+## Live Demo
+
+You can check the demo [here](https://fuzzify.vercel.app/).
+
 
 ## Installation
 
@@ -236,11 +241,6 @@ The complete response would be :point_down:
 Determines whether a score should be added in the result. A score of `1` means an exact match, however a score of `0` means
 no match and those options are removed from the result.
 If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy/issues) and let's discuss.
-
-
-## Live Demo
-
-You can check the demo [here](https://fuzzify.vercel.app/).
 
 ## Set up
 
