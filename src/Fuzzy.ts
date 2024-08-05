@@ -6,6 +6,7 @@ import {
 
 interface Options {
   includeMatches?: boolean;
+  includeScore?: boolean;
 }
 export type SingleResult = {
   text: string;
@@ -18,7 +19,7 @@ class Fuzzy {
    * The list of strings to search within.
    * @type {Array<string>}
    */
-  private list: Array<string>;
+  private readonly list: Array<string>;
 
   /**
    * The options for the fuzzy search.
