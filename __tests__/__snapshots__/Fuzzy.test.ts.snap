@@ -107,6 +107,7 @@ Fuzzy {
   "list": [],
   "options": {
     "includeMatches": false,
+    "includeScore": false,
   },
   "search": [Function],
 }

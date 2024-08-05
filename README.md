@@ -4,11 +4,16 @@ A tiny lightweight library for Fuzzy Search.
 
 ## Why
 
-I made this library as a result of learning about [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate minimum number of single-character edits (insertions, deletions or substitutions) required to transform one word to another by [Vladimir Levenshtein](https://en.wikipedia.org/wiki/Vladimir_Levenshtein).
+I made this library as a result of learning about [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm to calculate the minimum number of single-character edits (insertions, deletions or substitutions) required to transform one word to another by [Vladimir Levenshtein](https://en.wikipedia.org/wiki/Vladimir_Levenshtein).
 
 > [!NOTE]  
-> Note: The library is at a very early stage, if you want to
-> help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
+> Note: The library is at a very early stage so if you want to
+> To help improve it, please open an [issue](https://github.com/ad1992/fuzzify/issues).
+
+## Live Demo
+
+You can check the demo [here](https://fuzzify.vercel.app/).
+
 
 ## Installation
 
@@ -55,7 +60,7 @@ The `search` API gives approximate matched strings with the passed query in the 
 
 | Attributes | Description                                                                                                        |
 | ---------- | ------------------------------------------------------------------------------------------------------------------ |
-| text       | The target string against which query is matched                                                                   |
+| text       | The target string against which the query is matched                                                                   |
 | distance   | The minimum number of edits (Insertion / Deletion / Substitutions) required to transform the query to target text. |
 
 ```js
@@ -231,9 +236,11 @@ The complete response would be :point_down:
 ];
 ```
 
-## Live Demo
+### `includeScore`
 
-You can check the demo [here](https://fuzzify.vercel.app/).
+Determines whether a score should be added in the result. A score of `1` means an exact match, however a score of `0` means
+no match and those options are removed from the result.
+If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy/issues) and let's discuss.
 
 ## Set up
 
