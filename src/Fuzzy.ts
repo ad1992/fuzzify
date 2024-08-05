@@ -40,7 +40,6 @@ class Fuzzy {
    * The list of strings to search within.
    */
   private readonly list: Array<string>;
-
   /**
    * The options for the fuzzy search.
    */
