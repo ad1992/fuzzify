@@ -5,10 +5,8 @@ import { countries } from "./countries";
 
 function performSearch() {
   const query = document
-    .getElementById("searchInput")!
-    //@ts-ignore
-    .value!.toLowerCase();
-  const fuzzy = new Fuzzy(countries, { includeMatches: true, includeScore: true });
+    .getElementById("searchInput")!.value;
+  const fuzzy = new Fuzzy(countries, { includeMatches: true, includeScore: true});
   const results = fuzzy.search(query);
   console.debug("RESULTS = ", results);
   displayResults(results);

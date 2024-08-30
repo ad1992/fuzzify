@@ -13,6 +13,10 @@ interface Options {
    * Whether to include the score in the result.
    */
   includeScore?: boolean;
+  /**
+   * Whether the search is case-sensitive.
+   */
+  caseSensitive?: boolean;
 }
 
 export type SingleResult = {
@@ -50,6 +54,7 @@ class Fuzzy {
     this.options = options || {
       includeMatches: false,
       includeScore: false,
+      caseSensitive: false,
     };
   }
 
@@ -60,15 +65,17 @@ class Fuzzy {
    */
   public search = (query: string): Result => {
     const result: (SingleResult & { score: number })[] = [];
+    const updateQuery = this.options.caseSensitive ? query : query.toLowerCase();
     for (let i = 0; i < this.list.length; i++) {
+      const item = this.options.caseSensitive ? this.list[i] : this.list[i].toLowerCase();
       const matrix = levenshteinFullMatrixSearch(
-        query.toLowerCase(),
-        this.list[i].toLowerCase()
+        updateQuery,
+        item,
       );
       const matches = getMatchingIndices(
         matrix,
-        query.toLowerCase(),
-        this.list[i].toLowerCase()
+        updateQuery,
+       item
       );
       const target = this.list[i];
       const distance = matrix[query.length][target.length];
