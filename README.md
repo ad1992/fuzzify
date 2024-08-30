@@ -120,7 +120,8 @@ The `search` API gives approximate matched strings with the passed query in the 
 
 ### `includeMatches`
 
-`includeMatches` - Determines whether the `indices` at which characters matche should be returned in the response. Each `match` element consists of two indices -
+`includeMatches` - Determines whether the `indices` at which characters match should be returned in the response. 
+Each `match` element consists of two indices -
 
 1. The index of query string where match is found.
 2. The index of target string where a match is found.
@@ -241,6 +242,11 @@ The complete response would be :point_down:
 Determines whether a score should be added in the result. A score of `1` means an exact match, however a score of `0` means
 no match and those options are removed from the result.
 If you want to get all the options in the result, please open an [issue](https://github.com/ad1992/fuzzy/issues) and let's discuss.
+
+### `caseSensitive`
+
+Determines whether the query should be case-sensitive or not.
+By default, this option is `false`.
 
 ## Set up
 
