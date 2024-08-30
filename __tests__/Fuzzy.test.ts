@@ -7,7 +7,50 @@ describe("Test Fuzzy", () => {
   it("should return correct results for a query", () => {
     const query = "apple";
     const results = fuzzy.search(query);
-    expect(results).toMatchSnapshot();
+    expect(results).toMatchInlineSnapshot(`
+      [
+        {
+          "distance": 0,
+          "text": "apple",
+        },
+        {
+          "distance": 4,
+          "text": "pineapple",
+        },
+        {
+          "distance": 5,
+          "text": "orange",
+        },
+        {
+          "distance": 5,
+          "text": "banana",
+        },
+      ]
+    `);
+  });
+
+  it('should return correct results when "caseSensitive" option is true', () => {
+    const fuzzy = new Fuzzy(list, { caseSensitive: true });
+    const query = 'Apple';
+    const results = fuzzy.search(query);
+
+    // The Distance is updated since the query is caseSensitive
+    expect(results).toMatchInlineSnapshot(`
+      [
+        {
+          "distance": 1,
+          "text": "apple",
+        },
+        {
+          "distance": 5,
+          "text": "pineapple",
+        },
+        {
+          "distance": 5,
+          "text": "orange",
+        },
+      ]
+    `);
   });
 
   it("should return empty array for no matches", () => {
@@ -28,7 +71,17 @@ describe("Test Fuzzy", () => {
   it("should set this.list to an empty array if list is undefined", () => {
     // Simulate absence of list
     const badFuzzy = new Fuzzy(undefined as any);
-    expect(badFuzzy).toMatchSnapshot();
+    expect(badFuzzy).toMatchInlineSnapshot(`
+      Fuzzy {
+        "list": [],
+        "options": {
+          "caseSensitive": false,
+          "includeMatches": false,
+          "includeScore": false,
+        },
+        "search": [Function],
+      }
+    `)
   });
 
   it("should include score if includeScore option is true", () => {
@@ -60,5 +113,4 @@ describe("Test Fuzzy", () => {
       ]
     `)
   })
-
 });
