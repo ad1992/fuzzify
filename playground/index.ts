@@ -4,11 +4,10 @@ import { Result } from "../src/Fuzzy";
 import { countries } from "./countries";
 
 function performSearch() {
-  const query = document
-    .getElementById("searchInput")!.value;
+  const searchInput = document.getElementById("searchInput");
+  const query = (searchInput as HTMLInputElement).value;
   const fuzzy = new Fuzzy(countries, { includeMatches: true, includeScore: true});
   const results = fuzzy.search(query);
-  console.debug("RESULTS = ", results);
   displayResults(results);
 }
 
